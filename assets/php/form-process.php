@@ -1,67 +1,37 @@
 <?php
-
-$errorMSG = "";
-
-// NAME
-if (empty($_POST["name"])) {
-    $errorMSG = "Name is required ";
-} else {
-    $name = $_POST["name"];
+require(__DIR__ . '/../../vendor/autoload.php');
+// Check for empty fields
+if(empty($_POST['name'])      ||
+ empty($_POST['email'])     ||
+ empty($_POST['phone'])     ||
+ empty($_POST['message'])   ||
+ !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+{
+  print_r($_POST);
+  // echo "No arguments Provided!";
+ return false;
 }
 
-// EMAIL
-if (empty($_POST["email"])) {
-    $errorMSG .= "Email is required ";
-} else {
-    $email = $_POST["email"];
+$name = strip_tags(htmlspecialchars($_POST['name']));
+$email_address = strip_tags(htmlspecialchars($_POST['email']));
+$phone = strip_tags(htmlspecialchars($_POST['phone']));
+$message = strip_tags(htmlspecialchars($_POST['message']));
+
+$body = "You have received a new message from generico contact form.<br>"."Here are the details:<br>" .
+"Name: $name<br>Email: $email_address<br>Phone: $phone<br>Message:<br>$message";
+try {
+  $from = new SendGrid\Email("Tech", "tech@workcell.in");
+  $subject = "Generico Contact Form:  $name";
+  $to = new SendGrid\Email("Pankaj Kargirwar", "kargirwar@gmail.com");
+    //$to = new SendGrid\Email("Siddharth Gadia", "siddharth@letsreap.com");
+  $content = new \SendGrid\Content("text/html", $body);
+  $mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+
+  $key = trim(file_get_contents(__DIR__ . "/../../key")); 
+  $sg = new \SendGrid($key);
+  $response = $sg->client->mail()->send()->post($mail);
+} catch (\Exception $e) {
+  echo $e->getMessage();
 }
-
-// MSG SUBJECT
-if (empty($_POST["msg_subject"])) {
-    $errorMSG .= "Subject is required ";
-} else {
-    $msg_subject = $_POST["msg_subject"];
-}
-
-
-// MESSAGE
-if (empty($_POST["message"])) {
-    $errorMSG .= "Message is required ";
-} else {
-    $message = $_POST["message"];
-}
-
-
-$EmailTo = "email@gmail.com";
-$Subject = "New Message Received";
-
-// prepare email body text
-$Body = "";
-$Body .= "Name: ";
-$Body .= $name;
-$Body .= "\n";
-$Body .= "Email: ";
-$Body .= $email;
-$Body .= "\n";
-$Body .= "Subject: ";
-$Body .= $msg_subject;
-$Body .= "\n";
-$Body .= "Message: ";
-$Body .= $message;
-$Body .= "\n";
-
-// send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
-
-// redirect to success page
-if ($success && $errorMSG == ""){
-   echo "success";
-}else{
-    if($errorMSG == ""){
-        echo "Something went wrong :(";
-    } else {
-        echo $errorMSG;
-    }
-}
-
 ?>
