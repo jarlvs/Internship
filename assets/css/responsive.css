@@ -167,11 +167,16 @@
   }
   #main-slide .carousel-caption {
     top: 22%;
+    padding: 2px;
   }
   #main-slide .carousel-item .carousel-caption .heading {
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 9px;
+    margin-top: 80px;
   }
+  #frontheading{
+  color: #0F5621;
+  padding: 5px;
+}
   #main-slide .carousel-item .carousel-caption p {
     font-size: 13px;
   }
@@ -264,7 +269,7 @@
     letter-spacing: 0;
   }
   #main-slide .carousel-item .carousel-caption p {
-    font-size: 14px;
+    font-size: 6px;
   }
   #main-slide .carousel-caption .btn {
     margin: 0;

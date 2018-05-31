@@ -7,10 +7,11 @@ if(empty($_POST['name'])      ||
  empty($_POST['message'])   ||
  !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
 {
-  print_r($_POST);
-  // echo "No arguments Provided!";
+  // print_r($_POST);
+  echo "No arguments Provided!";
  return false;
 }
+
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
@@ -22,7 +23,7 @@ $body = "You have received a new message from generico contact form.<br>"."Here 
 try {
   $from = new SendGrid\Email("Tech", "tech@workcell.in");
   $subject = "Generico Contact Form:  $name";
-  $to = new SendGrid\Email("Pankaj Kargirwar", "kargirwar@gmail.com");
+  $to = new SendGrid\Email("Prem Shinde", "premshinde13@gmail.com");
     //$to = new SendGrid\Email("Siddharth Gadia", "siddharth@letsreap.com");
   $content = new \SendGrid\Content("text/html", $body);
   $mail = new SendGrid\Mail($from, $subject, $to, $content);
@@ -31,7 +32,13 @@ try {
   $key = trim(file_get_contents(__DIR__ . "/../../key")); 
   $sg = new \SendGrid($key);
   $response = $sg->client->mail()->send()->post($mail);
+  echo "success";
+
+
+
 } catch (\Exception $e) {
   echo $e->getMessage();
 }
+
+
 ?>

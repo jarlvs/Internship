@@ -2132,11 +2132,14 @@ a.back-to-top:hover, a.back-to-top:focus {
 #main-slide .carousel-control {
   display: none;
   transition: all 0.3s ease-in-out;
+  width:500px;
 }
 
 #main-slide .carousel-indicators {
   cursor: pointer;
-  bottom: 90px;
+  bottom: 40px;
+  margin-top: 150px;
+  /*top: 50px;*/
 }
 
 #main-slide:hover .carousel-control {
@@ -2181,8 +2184,9 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 #main-slide .carousel-item .carousel-caption p {
-  font-size: 20px;
-  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  color: black;
   font-family:italic;
 }
 
@@ -2316,5 +2320,9 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 .spce{
   letter-spacing: 1px;
+}
+
+#subhead{
+  font-size: 10px;
 }
 
