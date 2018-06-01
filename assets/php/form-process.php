@@ -23,8 +23,7 @@ $body = "You have received a new message from generico contact form.<br>"."Here 
 try {
   $from = new SendGrid\Email("Tech", "tech@workcell.in");
   $subject = "Generico Contact Form:  $name";
-  $to = new SendGrid\Email("Prem Shinde", "premshinde13@gmail.com");
-    //$to = new SendGrid\Email("Siddharth Gadia", "siddharth@letsreap.com");
+    $to = new SendGrid\Email("Siddharth Gadia", "siddharth@letsreap.com");
   $content = new \SendGrid\Content("text/html", $body);
   $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
