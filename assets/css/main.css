@@ -234,7 +234,7 @@ ul li, ol li {
 
 .btn-common:hover {
   color: #fff;
-  background: #F50057;
+  background: #0F5621;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
   transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -1312,10 +1312,11 @@ a.back-to-top:hover, a.back-to-top:focus {
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   transition: all 500ms ease;
+  margin-top: -190px;
 }
 
 #gallery .gallery-box:hover .overlay-box {
-  background: rgba(233, 30, 99, 0.7);
+  background: #0F5621;
   transform: scale(1, 1);
   transition: all 500ms ease;
 }
@@ -2029,14 +2030,14 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 /* Pricing Ticket */
 #pricing {
-  background: url(../img/background/Shreenagar.jpeg);
+  /*background: url(../img/background/Shreenagar.jpeg);
   background-attachment: fixed;
   overflow: hidden;
   position: relative;
-}
+*/}
 
 #pricing .section-title-header .section-title {
-  color: #fff;
+  color: #000;
 }
 
 #pricing .section-title-header p {
@@ -2055,6 +2056,10 @@ a.back-to-top:hover, a.back-to-top:focus {
 
 #pricing .price-block-wrapper .icon {
   padding: 20px;
+}
+
+.customerimg{
+  width: 35%;
 }
 
 #pricing .price-block-wrapper .icon i {
@@ -2091,7 +2096,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 #pricing .price-block-wrapper .price p {
-  font-size: 17px;
+  font-size: 15px;
   color: #5c5c5c;
   font-weight: 700;
   letter-spacing: 1px;
@@ -2174,20 +2179,23 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 #main-slide .carousel-item .carousel-caption .heading {
-  font-size: 25px;
+  font-size:40px;
   font-weight: 900;
   color:#000;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   letter-spacing: 0.1rem;
   margin-top: 180px;
-  background:#0F5621;
+  background:none;
+  font-family: 'Lato', sans-serif;
+  margin-top: 100px;
 }
 
 #main-slide .carousel-item .carousel-caption p {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   color: black;
-  font-family:italic;
+  font-family: 'Ubuntu', 'Arial', sans-serif;
+
 }
 
 #main-slide .carousel-item.active .carousel-caption {
@@ -2305,7 +2313,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 #op{
-  opacity:0.7;
+  opacity:1;
 }
 
 

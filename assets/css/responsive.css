@@ -201,8 +201,10 @@
   .countdown-timer .heading-count h4 {
     font-size: 12px;
   }
-  .schedule .card-body {
+  #faq  .card-body {
     padding: 15px;
+    font-size: 10px;
+    margin-left: 30px;
   }
   .schedule .schedule-tab-title .nav-tabs .nav-link {
     width: 400px;
