@@ -16,7 +16,7 @@
             openedSymbol: '&#9660;',
             prependTo: 'body',
             parentTag: 'a',
-            closeOnClick: false,
+            closeOnClick: true,
             allowParentLinks: false,
             nestedParentLinks: true,
             showChildren: false,
@@ -182,6 +182,7 @@
                 if (settings.closeOnClick && !$(event.target).parent().closest('li').hasClass(prefix+'_parent')) {
                         //Emulate menu close if set
                         $($this.btn).click();
+                        
                     }
             });
 
@@ -231,7 +232,9 @@
         // click on menu parent
         $this.mobileNav.on('click', '.' + prefix + '_item', function (e) {
             e.preventDefault();
+            // $this._menuToggle();
             $this._itemClick($(this));
+
         });
 
         // check for enter key on menu button and menu parents
@@ -281,7 +284,9 @@
         var $this = this;
         var settings = $this.settings;
         var data = el.data('menu');
+         $this._menuToggle();
         if (!data) {
+
             data = {};
             data.arrow = el.children('.'+prefix+'_arrow');
             data.ul = el.next('ul');

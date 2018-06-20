@@ -70,6 +70,13 @@
   .schedule .card-header h4 {
     font-size: 14px;
   }
+
+  .dot{
+    font-size: 14px;
+    margin-bottom: 0;
+    letter-spacing: none;
+    font-family: inherit;
+  }
   #pricing .price-block-wrapper .pricing-list {
     padding: 10px 35px 10px 45px;
   }
